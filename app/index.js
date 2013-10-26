@@ -43,7 +43,7 @@ TestGenerator.prototype.askFor = function askFor() {
       //author and header info
       {
           name: "authorName",
-          message: "Who is the creator of this site?",
+          message: "What is your name?",
           default: "Your Name",
       },
  
@@ -52,13 +52,25 @@ TestGenerator.prototype.askFor = function askFor() {
           default: "Username",
           message: "What is your gitHub account?"
       },
- 
-      {
-          name: "authorCompanyName",
-          default: "Company Name",
-          message: "(optional) What is your company name?"
+	  
+	  {
+          name: "authorURL",
+          default: "www.github.com",
+          message: "What is your website URL?"
       },
 	  
+      {
+          name: "authorEmail",
+          default: "Someone@Example.com",
+          message: "What is your email address?"
+      },
+	  
+      {
+          name: "authorCompanyName",
+          default: "Company",
+          message: "What is your companies name?"
+      },
+ 	  
       {
           name: "includeGlyphs",
 		  type: "confirm",
@@ -102,12 +114,14 @@ TestGenerator.prototype.askFor = function askFor() {
 	this.keywords = props.keywords;
 	this.authorName = props.authorName;
 	this.authorGitHub = props.authorGitHub;
-	this.authorCompanyName = props.authorCompanyName;
 	this.includeGlyphs = props.includeGlyphs;
 	this.include404 = props.include404;
 	this.includeRobotsTxt = props.includeRobotsTxt
 	this.includeHtaccess = props.includeHtaccess
 	this.includeIcons = props.includeIcons
+	this.authorURL = props.authorURL
+	this.authorEmail = props.authorEmail
+	this.authorCompanyName = props.authorCompanyName
 
     cb();
   }.bind(this));
@@ -128,14 +142,17 @@ TestGenerator.prototype.app = function app() {
   
   //JavaScript
   this.mkdir("js");
-  this.copy("js/main.js");
+  this.copy("js/_main.js");
   this.copy("js/plugins.js");
   
-  this.mkdir("vendor");
+  this.mkdir("js/vendor");
   this.copy("js/vendor/bootstrap.js");
   this.copy("js/vendor/bootstrap.min.js");
   this.copy("js/vendor/jquery-1.10.1.min.js");
   this.copy("js/vendor/modernizr-2.6.2-respond-1.1.0.min.js");
+  
+  //img
+  this.mkdir("img");
   
   //robots
   if (this.includeRobotsTxt) {

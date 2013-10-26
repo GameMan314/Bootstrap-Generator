@@ -1,4 +1,4 @@
-# generator-test [![Build Status](https://secure.travis-ci.org/GameMan314/Generator-Test.png?branch=master)](https://travis-ci.org/GameMan314/Generator-Test)
+# Bootstrap-Generator [![Build Status](https://secure.travis-ci.org/GameMan314/Bootstrap-Generator.png?branch=master)](https://travis-ci.org/GameMan314/Bootstrap-Generator)
 
 A generator for [Yeoman](http://yeoman.io).
 
